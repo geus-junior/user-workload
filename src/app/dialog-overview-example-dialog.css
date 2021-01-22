@@ -2,6 +2,7 @@ table {
   width: 100%;
 }
 
-.button-icon {
-  color: #f3465c;
+svg {
+  width: 17px;
+  height: 17px;
 }

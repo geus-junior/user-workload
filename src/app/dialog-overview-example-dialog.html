@@ -1,56 +1,90 @@
 <h1 mat-dialog-title>Jornada de trabalho - {{data.name}}</h1>
 <div mat-dialog-content>
-	<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-		<!-- Day of the week Column -->
-		<ng-container matColumnDef="day_week">
-			<th mat-header-cell *matHeaderCellDef> Dia da Semana </th>
-			<td mat-cell *matCellDef="let element"> {{element.day_week}} </td>
-		</ng-container>
+	<div>
+		<P>
+			<mat-form-field appearance="outline" style="width:130px !important">
+				<input matInput type="time" required/>
+    </mat-form-field>
+		</P>
+		<P>
+			<mat-form-field appearance="outline">
+				<mat-select>
+					<mat-option value="option1">Domingo</mat-option>
+					<mat-option value="option2">Segunda-feira</mat-option>
+					<mat-option value="option3">Terça-feira</mat-option>
+					<mat-option value="option3">Quarta-feira</mat-option>
+					<mat-option value="option3">Quinta-feira</mat-option>
+					<mat-option value="option3">Sexta-feira</mat-option>
+					<mat-option value="option3">Sábado</mat-option>
+				</mat-select>
+			</mat-form-field>
+		</P>
+		<p>
 
-		<!-- Start time Column -->
-		<ng-container matColumnDef="start_time">
-			<th mat-header-cell *matHeaderCellDef> Horário do início </th>
-			<td mat-cell *matCellDef="let element"> {{element.start_time | date: 'HH:mm:ss'}} </td>
-		</ng-container>
+		</p>
+	</div>
 
-		<!-- End time Column -->
-		<ng-container matColumnDef="end_time">
-			<th mat-header-cell *matHeaderCellDef> Horário do fim </th>
-			<td mat-cell *matCellDef="let element"> {{element.end_time | date: 'HH:mm:ss'}} </td>
-		</ng-container>
+	<div>
+		<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-		<!-- Workload Column -->
-		<ng-container matColumnDef="workload">
-			<th mat-header-cell *matHeaderCellDef> Carga horária </th>
-			<td mat-cell *matCellDef="let element">{{getWorkload(element.start_time, element.end_time)}}</td>
-		</ng-container>
+			<!-- Day of the week Column -->
+			<ng-container matColumnDef="day_week">
+				<th mat-header-cell *matHeaderCellDef> Dia da Semana </th>
+				<td mat-cell *matCellDef="let element"> {{element.day_week}} </td>
+			</ng-container>
 
-		<!-- Delete Column -->
-		<ng-container matColumnDef="delete">
-			<th mat-header-cell *matHeaderCellDef> Ações </th>
-			<td mat-cell *matCellDef="let element">
-				<button mat-icon-button matTooltip="Alterar carga hóraria">
-          <mat-icon class="button-icon">edit</mat-icon>
+			<!-- Start time Column -->
+			<ng-container matColumnDef="start_time">
+				<th mat-header-cell *matHeaderCellDef> Horário do início </th>
+				<td mat-cell *matCellDef="let element"> {{element.start_time | date: 'HH:mm:ss'}} </td>
+			</ng-container>
+
+			<!-- End time Column -->
+			<ng-container matColumnDef="end_time">
+				<th mat-header-cell *matHeaderCellDef> Horário do fim </th>
+				<td mat-cell *matCellDef="let element"> {{element.end_time | date: 'HH:mm:ss'}} </td>
+			</ng-container>
+
+			<!-- Workload Column -->
+			<ng-container matColumnDef="workload">
+				<th mat-header-cell *matHeaderCellDef> Carga horária </th>
+				<td mat-cell *matCellDef="let element">{{getWorkload(element.start_time, element.end_time)}}</td>
+			</ng-container>
+
+			<!-- Delete Column -->
+			<ng-container matColumnDef="delete">
+				<th mat-header-cell *matHeaderCellDef> Ações </th>
+				<td mat-cell *matCellDef="let element">
+
+					<button mat-icon-button matTooltip="Alterar carga hóraria">
+           <mat-icon role="img" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 16.191 15.857" fit="" preserveAspectRatio="xMidYMid meet" focusable="false">
+                <path id="Caminho_40" data-name="Caminho 40" d="M536.475,378.27a.821.821,0,0,1,1.642,0V382.5a2.163,2.163,0,0,1-2.156,2.156H525.49a2.163,2.163,0,0,1-2.156-2.156V371.956a2.163,2.163,0,0,1,2.156-2.156H530a.821.821,0,0,1,0,1.642H525.49a.515.515,0,0,0-.514.514V382.5a.515.515,0,0,0,.514.514h10.472a.515.515,0,0,0,.514-.514V378.27Zm.824-9.279,2.031,2.031a.67.67,0,0,1,0,.944l-.274.274-2.975-2.975.274-.274a.669.669,0,0,1,.944,0Zm1.289,3.716-5.58,5.58-2.975-2.975,5.58-5.58,2.975,2.975Zm-6.124,5.971-3.259.46.428-3.29,2.83,2.83Z" transform="translate(-523.334 -368.796)" fill="#afafaf"></path>
+              </svg>
+           </mat-icon>
         </button>
-        <button mat-icon-button>
-          <mat-icon class="button-icon" matTooltip="Excluir carga horária">delete_outline</mat-icon>
-        </button>        
-			</td>
-		</ng-container>
 
-		<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-		<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-	</table>
+					<button mat-icon-button matTooltip="Excluir carga horária">
+          <mat-icon role="img" aria-hidden="true">
+	        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 12.347 17.628" fit="" preserveAspectRatio="xMidYMid meet" focusable="false">
+		          <path id="Caminho_45" data-name="Caminho 45"
+			          d="M264.1,75.269h9.617a.33.33,0,0,0,.142-.028.1.1,0,0,0,.043-.034.137.137,0,0,0,.014-.07.46.46,0,0,0-.056-.2l-.346-.693h0a1.215,1.215,0,0,0-.25-.362.384.384,0,0,0-.266-.1h-8.183a.385.385,0,0,0-.266.1,1.224,1.224,0,0,0-.248.363l-.346.693a.46.46,0,0,0-.056.2.137.137,0,0,0,.015.07.1.1,0,0,0,.043.034.331.331,0,0,0,.142.028Zm6.56,2.518a.582.582,0,1,1,1.161.082l-.583,8.2a.582.582,0,0,1-1.161-.082l.583-8.2Zm-4.663.082a.582.582,0,1,1,1.161-.082l.583,8.2a.582.582,0,0,1-1.161.082l-.583-8.2Zm2.329-.041a.583.583,0,0,1,1.166,0v8.2a.583.583,0,0,1-1.166,0v-8.2Zm-2.5-5.207a1.723,1.723,0,0,1,.584-1.282l.04-.033a1.986,1.986,0,0,1,1.289-.47h2.332a1.985,1.985,0,0,1,1.329.5q.021.019.039.039a1.715,1.715,0,0,1,.545,1.243H273a1.51,1.51,0,0,1,1.04.392,2.319,2.319,0,0,1,.515.713h0l.346.693a1.608,1.608,0,0,1,.179.718,1.282,1.282,0,0,1-.188.675,1.258,1.258,0,0,1-.393.4l-1.453,11.738a.583.583,0,0,1-.578.512h-7.125a.583.583,0,0,1-.58-.528l-1.451-11.722a1.256,1.256,0,0,1-.393-.4,1.282,1.282,0,0,1-.188-.675,1.608,1.608,0,0,1,.179-.718l.346-.693a2.308,2.308,0,0,1,.517-.713,1.509,1.509,0,0,1,1.04-.392Zm4.993,0a.561.561,0,0,0-.173-.4l-.024-.02a.82.82,0,0,0-.55-.2h-2.332a.826.826,0,0,0-.526.179l-.025.024a.565.565,0,0,0-.2.416Zm2.478,3.813h-8.783L265.857,87.3h6.095Z" transform="translate(-262.731 -70.836)" fill="#afafaf" fill-rule="evenodd"></path>
+	          </svg>
+          </mat-icon>
+        </button>
 
+				</td>
+			</ng-container>
 
+			<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+			<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+		</table>
+	</div>
 
-	<!--<mat-form-field>
-    <input matInput [(ngModel)]="data.animal" />
-  </mat-form-field>-->
 </div>
 <div mat-dialog-actions>
-	<button mat-stroked-button color="primary" (click)="onNoClick()">Sair</button>
-	<button mat-stroked-button color="primary" [mat-dialog-close]="data.animal" cdkFocusInitial>Ok
+	<button mat-stroked-button (click)="onNoClick()">Sair</button>
+	<button mat-stroked-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok
   </button>
 </div>
