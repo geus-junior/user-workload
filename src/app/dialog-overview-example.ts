@@ -13,21 +13,17 @@ import { DialogOverviewExampleDialog } from "./dialog-overview-example-dialog";
   encapsulation: ViewEncapsulation.None
 })
 export class DialogOverviewExample {
-  animal: string;
-  name: string = 'Geús';
+  name: string = "Geús";
 
   constructor(public dialog: MatDialog) {}
 
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
       width: "800px",
-      height: "400px",
-      data: { name: this.name, animal: this.animal }
+      height: "600px",
+      data: { name: this.name }
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log("The dialog was closed");
-      this.animal = result;
-    });
+    dialogRef.afterClosed().subscribe(() => {});
   }
 }

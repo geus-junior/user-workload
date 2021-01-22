@@ -25,14 +25,3 @@
 .mat-form-field-input-size {
   width: 350px !important;
 }
-
-/*Button*/
-/*.mat-button.mat-primary,
-.mat-icon-button.mat-primary,
-.mat-stroked-button.mat-primary {
-  background-image: linear-gradient(to left, #ca0145, #f3475c) !important;
-}
-
-.mat-button-wrapper {
-  color: #ffffff;
-}*/

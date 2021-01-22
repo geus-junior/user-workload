@@ -4,7 +4,6 @@ import { MomentDateAdapter } from "@angular/material-moment-adapter";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
 
 export interface DialogData {
-  animal: string;
   name: string;
 }
 
@@ -56,12 +55,7 @@ export class DialogOverviewExampleDialog {
     var dia = 1000 * 60 * 60 * 24; // milésimos de segundo correspondente a um dia
     var total = Math.round(diferenca / dia); //valor total de dias arredondado
     var emHoras = Math.round(total * 24); // valor total em Horas
-    
-    console.log(emHoras);
-    
+
     return emHoras;
-
-
-
   }
 }
